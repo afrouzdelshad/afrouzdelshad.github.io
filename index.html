@@ -46,7 +46,10 @@ main section{margin-bottom:52px;scroll-margin-top:84px}
 h2{font-family:Fraunces,serif;font-weight:600;font-size:24px;margin:0 0 18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .tags span{font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.cards{display:grid;grid-template-columns:1fr;gap:20px}
+.fig{display:block;margin:-4px -4px 16px;padding:12px;background:#fff;border-radius:10px;border:1px solid var(--line);transition:transform .15s,box-shadow .15s}
+.fig:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.fig img{display:block;width:100%;height:auto}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
 .card h3{margin:0 0 6px;font-size:16px}
 .card p{margin:0;color:var(--muted);font-size:14.5px}
@@ -120,8 +123,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
     <section id="research">
       <h2>Research</h2>
       <div class="cards">
-        <div class="card"><h3>Echo state networks for time series forecasting</h3><p>I develop variations of echo state networks, including deep (multi-layer) and hybrid knowledge-based ESNs, to forecast complex time series. Deep ESNs improved prediction accuracy over same-size baseline ESNs by up to 65% on chaotic Mackey&ndash;Glass data and 14% on experimental zebrafish cardiac voltage recordings, and deep structures made predictions more robust. Published in <a href="https://doi.org/10.1063/5.0283425"><i>Chaos</i> (2025)</a>.</p></div>
-        <div class="card"><h3>LLMs and VLMs as judges</h3><p>I build controlled benchmarks that test whether large language and vision-language models evaluate the property they are asked to judge. Using scientific time series where complexity and chaos vary independently with known ground truth, I compare models across ranking, outlier detection, clustering and pairwise tasks, and analyze their reasoning to see when they rely on the right features and when they fall back on plausible but incorrect proxies.</p></div>
+        <div class="card"><a class="fig" href="papers/deep-echo-state-networks.pdf" title="Read the paper (PDF)"><img src="figures/deep-esn-architectures.png" alt="Deep echo state network architectures studied: DESN, DESN+, DESN-i, DESN-o, DESN-io and DESN-io+"></a><h3>Echo state networks for time series forecasting</h3><p>I develop variations of echo state networks, including deep (multi-layer) and hybrid knowledge-based ESNs, to forecast complex time series. Deep ESNs improved prediction accuracy over same-size baseline ESNs by up to 65% on chaotic Mackey&ndash;Glass data and 14% on experimental zebrafish cardiac voltage recordings, and deep structures made predictions more robust. Published in <a href="https://doi.org/10.1063/5.0283425"><i>Chaos</i> (2025)</a>.</p></div>
+        <div class="card"><a class="fig" href="papers/llm-judges-complexity-chaos.pdf" title="Read the paper (PDF)"><img src="figures/llm-judge-results.png" alt="Bar chart of scores for three LLM judges across nine benchmark tasks"></a><h3>LLMs and VLMs as judges</h3><p>I build controlled benchmarks that test whether large language and vision-language models evaluate the property they are asked to judge. Using scientific time series where complexity and chaos vary independently with known ground truth, I compare models across ranking, outlier detection, clustering and pairwise tasks, and analyze their reasoning to see when they rely on the right features and when they fall back on plausible but incorrect proxies.</p></div>
       </div>
     </section>
 
