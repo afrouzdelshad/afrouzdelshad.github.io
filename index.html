@@ -58,6 +58,9 @@ h2{font-family:Fraunces,serif;font-weight:600;font-size:24px;margin:0 0 18px;pad
 .timeline .row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:8px 0}
 .timeline .when{color:var(--muted);font-size:14px}
 .timeline .what b{font-weight:600}
+.skills{display:grid;gap:18px}
+.sk-h{font-weight:600;font-size:15px}
+.sk .tags{margin-top:8px}
 .timeline .what div{color:var(--muted);font-size:14.5px}
 .toggle{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;width:36px;height:36px;cursor:pointer;display:grid;place-items:center;flex:none}
 .toggle:hover{border-color:var(--accent);color:var(--accent)}
@@ -84,6 +87,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
     <li><a href="#publications">Publications</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="cv.pdf">CV</a></li>
   </ul>
   <button class="toggle" id="toggle" aria-label="Switch between day and night mode" title="Day / night">
@@ -110,7 +114,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
     <section id="about">
       <h2>About</h2>
       <p>I'm a PhD student in Computational Science and Engineering at Georgia Tech, advised by Prof. Elizabeth Cherry, with an expected graduation date of May 2029. I work on forecasting complex time series with machine learning and on evaluating large language models as judges. I received my MS in Computational Science and Engineering from Georgia Tech in May 2026.</p>
-      <p>I develop variations of echo state networks (ESNs), including deep and hybrid ESNs, to improve the accuracy of time series prediction on real-world data such as cardiac electrophysiology recordings. I also evaluate large language models (LLMs) and vision-language models (VLMs) as judges for recognizing dynamical properties such as complexity and chaos in scientific time series.</p>
+      <p>I develop variations of echo state networks (ESNs), including deep and hybrid ESNs, and apply Transformers to improve the accuracy of time series prediction on real-world data such as cardiac electrophysiology recordings. I also evaluate large language models (LLMs) as judges for recognizing dynamical properties such as complexity and chaos in scientific time series.</p>
       <div class="tags">
         <span>Machine Learning</span><span>Deep Learning</span><span>LLM-as-a-judge</span><span>LLM evaluation</span>
       </div>
@@ -119,8 +123,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
     <section id="research">
       <h2>Research</h2>
       <div class="cards">
-        <div class="card"><a class="fig" href="papers/llm-judges-complexity-chaos.pdf" title="Read the paper (PDF)"><img src="figures/llm-judge-results.png" alt="Bar chart of scores for three LLM judges across nine benchmark tasks"></a><h3><a class="ct" href="papers/llm-judges-complexity-chaos.pdf">Benchmarking LLM Judges on Scientific Time Series</a></h3><p>I build controlled benchmarks that test whether large language and vision-language models evaluate the property they are asked to judge. Using scientific time series where complexity and chaos vary independently with known ground truth, I compare models across ranking, outlier detection, clustering and pairwise tasks, and analyze their reasoning to see when they rely on the right features and when they fall back on plausible but incorrect proxies.</p></div>
-        <div class="card"><a class="fig" href="papers/deep-echo-state-networks.pdf" title="Read the paper (PDF)"><img src="figures/deep-esn-architectures.png" alt="Deep echo state network architectures studied: DESN, DESN+, DESN-i, DESN-o, DESN-io and DESN-io+"></a><h3><a class="ct" href="papers/deep-echo-state-networks.pdf">Deep Echo State Networks for Complex Time Series Prediction</a></h3><p>I develop variations of echo state networks, including deep (multi-layer) and hybrid knowledge-based ESNs, to forecast complex time series. Deep ESNs improved prediction accuracy over same-size baseline ESNs by up to 65% on chaotic Mackey&ndash;Glass data and 14% on experimental zebrafish cardiac voltage recordings, and deep structures made predictions more robust. Published in <a href="https://doi.org/10.1063/5.0283425"><i>Chaos</i> (2025)</a>.</p></div>
+        <div class="card"><a class="fig" href="papers/llm-judges-complexity-chaos.pdf" title="Read the paper (PDF)"><img src="figures/llm-judge-results.png" alt="Bar chart of scores for three LLM judges across nine benchmark tasks"></a><h3><a class="ct" href="papers/llm-judges-complexity-chaos.pdf">Benchmarking LLM Judges on Scientific Time Series</a></h3><p>I designed a controlled benchmark of scientific time series in which complexity and chaos vary independently with known ground truth, to test whether LLM judges measure the property they are asked to evaluate. I engineered task prompts and evaluated Claude, GPT and Gemini on ranking, outlier detection, clustering and pairwise tasks: Claude was near-perfect, while GPT and Gemini often confused complexity with chaos. Analyzing the models&rsquo; reasoning showed that their failures usually came from plausible but incorrect proxy features.</p></div>
+        <div class="card"><a class="fig" href="papers/deep-echo-state-networks.pdf" title="Read the paper (PDF)"><img src="figures/deep-esn-architectures.png" alt="Deep echo state network architectures studied: DESN, DESN+, DESN-i, DESN-o, DESN-io and DESN-io+"></a><h3><a class="ct" href="papers/deep-echo-state-networks.pdf">Deep Echo State Networks for Complex Time Series Prediction</a></h3><p>Echo state networks (ESNs) are recurrent neural networks with a fixed random reservoir in which only the output layer is trained. I developed six deep ESN architectures, along with hybrid versions that integrate physics-based model data into the network, to forecast chaotic and real-world time series. Compared with baseline ESNs that have the same total number of neurons, so that gains reflect depth rather than network size, deep ESNs improved accuracy by up to 65% on chaotic Mackey&ndash;Glass data and 14% on zebrafish cardiac recordings. I tuned hyperparameters with Bayesian optimization and showed that deep architectures make forecasts more robust. Published in <a href="https://doi.org/10.1063/5.0283425"><i>Chaos</i> (2025)</a>.</p></div>
       </div>
     </section>
 
@@ -148,7 +152,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
       <h2>Experience</h2>
       <div class="timeline">
         <div class="row"><div class="when">May 2024 – present</div><div class="what"><b>Graduate Research Assistant</b><div>Georgia Institute of Technology</div></div></div>
-        <div class="row"><div class="when">Aug 2026 - present</div><div class="what"><b>Graduate Teaching Assistant</b><div>Georgia Institute of Technology</div></div></div>
+        <div class="row"><div class="when">Aug 2026 - present</div><div class="what"><b>Graduate Teaching Assistant</b><div>Georgia Institute of Technology</div><div>Biomedical Modeling and Simulation (CSE 8803): helped design course assignments and delivered lectures on selected topics.</div></div></div>
       </div>
     </section>
 
@@ -158,6 +162,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px;border-t
         <div class="row"><div class="when">Expected May 2029</div><div class="what"><b>PhD, Computational Science &amp; Engineering</b><div>Georgia Institute of Technology · Advisor: Elizabeth M. Cherry</div></div></div>
         <div class="row"><div class="when">May 2026</div><div class="what"><b>MS, Computational Science &amp; Engineering</b><div>Georgia Institute of Technology</div></div></div>
         <div class="row"><div class="when">Feb 2021</div><div class="what"><b>BS, Applied Mathematics</b><div>University of Kashan</div></div></div>
+      </div>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="sk"><div class="sk-h">Programming</div><div class="tags"><span>Python</span><span>NumPy</span><span>SciPy</span><span>pandas</span><span>scikit-learn</span><span>PyTorch</span><span>Matplotlib</span><span>MATLAB</span><span>Git</span><span>LaTeX</span></div></div>
+        <div class="sk"><div class="sk-h">Machine Learning</div><div class="tags"><span>Transformers</span><span>Recurrent Neural Networks (RNNs)</span><span>Reservoir Computing</span><span>Physics-informed Neural Networks (PINNs)</span><span>Bayesian Optimization</span></div></div>
+        <div class="sk"><div class="sk-h">LLMs &amp; Evaluation</div><div class="tags"><span>LLM-as-a-judge</span><span>Benchmark design</span><span>Prompt engineering</span><span>Reasoning analysis</span></div></div>
       </div>
     </section>
   </main>
